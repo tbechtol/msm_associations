@@ -6,4 +6,5 @@ class Director < ActiveRecord::Base
   #  - dob: no rules
   #  - bio: no rules
   #  - image_url: no rules
+ belongs_to(:movie, :class_name => "Movie", :foreign_key => "movie_id")
 end
