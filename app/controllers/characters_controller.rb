@@ -24,13 +24,11 @@ class CharactersController < ApplicationController
     @character.actor_id = params[:actor_id]
     @character.name = params[:name]
 
-    save_status = @character.save
-
-    if save_status == true
-      redirect_to("/characters/#{@character.id}", :notice => "Character created successfully.")
+    if @character.save
+      redirect_to "/characters", :notice => "Character created successfully."
     else
-      render("characters/new.html.erb")
-    end
+      render 'new'
+  end
   end
 
   def edit
