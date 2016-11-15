@@ -26,14 +26,12 @@ class MoviesController < ApplicationController
     @movie.description = params[:description]
     @movie.image_url = params[:image_url]
     @movie.director_id = params[:director_id]
-    # @movie.director_name = params[:name]
-    save_status = @movie.save
 
-    if save_status == true
-      redirect_to("/movies/#{@movie.id}", :notice => "Movie created successfully.")
-    else
-      render("movies/new.html.erb")
-    end
+    if @movie.save
+    redirect_to :back, :notice => "Movie created successfully."
+  else
+    render 'new'
+  end
   end
 
   def edit
