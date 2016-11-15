@@ -9,6 +9,8 @@ class Movie < ActiveRecord::Base
 #  - description: no rules
 #  - image_url: no rules
 
+  belongs_to :director
+  has_many :characters
 
 
 end
